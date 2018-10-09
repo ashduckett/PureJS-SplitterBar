@@ -49,77 +49,18 @@ const SplitterBar = function(container) {
         evt.preventDefault();
         let left = this.offsetLeft;
         globalXCoordinate = left + evt.offsetX - startX;
-
-
-        // evt.stopPropagation();
-        // if (mouseIsDown) {
-
-        //     if (splitter.offsetLeft + splitter.offsetWidth > container.offsetWidth) {
-        //         globalXCoordinate = container.offsetWidth - splitter.offsetWidth;
-        //     }
-
-        //     if (splitter.offsetLeft < 0) {
-        //         globalXCoordinate = 0;
-        //     }
-            
-        //     splitter.style.left = globalXCoordinate + 'px';
-        //     leftSide.style.width = splitter.offsetLeft + 'px';
-        //     rightSide.style.width = (container.offsetWidth - leftSide.offsetWidth - splitter.offsetWidth) + 'px';
-        //     rightSide.style.left = splitter.offsetLeft + splitter.offsetWidth + 'px';
-        // }
     });
 
     rightSide.addEventListener('mousemove', function(evt) {
         evt.preventDefault();
         let left = this.offsetLeft;
         globalXCoordinate = left + evt.offsetX - startX;
-
-
-        // evt.stopPropagation();
-        // if (mouseIsDown) {
-
-        //     if (splitter.offsetLeft + splitter.offsetWidth > container.offsetWidth) {
-        //         globalXCoordinate = container.offsetWidth - splitter.offsetWidth;
-        //     }
-
-        //     if (splitter.offsetLeft < 0) {
-        //         globalXCoordinate = 0;
-        //     }
-            
-        //     splitter.style.left = globalXCoordinate + 'px';
-        //     leftSide.style.width = splitter.offsetLeft + 'px';
-        //     rightSide.style.width = (container.offsetWidth - leftSide.offsetWidth - splitter.offsetWidth) + 'px';
-        //     rightSide.style.left = splitter.offsetLeft + splitter.offsetWidth + 'px';
-        // }
     });
 
     splitter.addEventListener('mousemove', function(evt) {
         evt.preventDefault();
-        // evt.stopPropagation();
-
         let left = this.offsetLeft;
-
-        // This calculates the left position of the splitter so it's safe to use when comparing later
         globalXCoordinate = left + evt.offsetX - startX;
-
-
-        
-        // if (mouseIsDown) {
-
-        //     if (splitter.offsetLeft + splitter.offsetWidth > container.offsetWidth) {
-        //         globalXCoordinate = container.offsetWidth - splitter.offsetWidth;
-        //     }
-
-        //     if (globalXCoordinate < 0) {
-        //         globalXCoordinate = 0;
-        //     }
-            
-        //     console.log('setting splitter to globalXCorrdinate of ', globalXCoordinate);
-        //     splitter.style.left = globalXCoordinate + 'px';
-        //     leftSide.style.width = splitter.offsetLeft + 'px';
-        //     rightSide.style.width = (container.offsetWidth - leftSide.offsetWidth - splitter.offsetWidth) + 'px';
-        //     rightSide.style.left = splitter.offsetLeft + splitter.offsetWidth + 'px';
-        // }
     });
 
 
@@ -133,7 +74,6 @@ const SplitterBar = function(container) {
 
 
     document.addEventListener('mousemove', function(evt) {
-        console.log(evt.target.nodeName)
         evt.preventDefault();
         evt.stopPropagation();
 
