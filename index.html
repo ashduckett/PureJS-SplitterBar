@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="SplitterBar.css" type="text/css" rel="stylesheet">
     <title>Document</title>
 
     <style>
@@ -14,17 +15,6 @@
             width: 50%;
             margin: auto;
         }
-
-        .leftSide, .rightSide, .splitter {
-            position: absolute;
-            height: 100%;
-        }
-
-        .splitter {
-            width: 10px;
-            z-index: 100;
-            cursor: col-resize;
-        }
     </style>
 
 </head>
@@ -34,10 +24,27 @@
     </div>
 
 
-    <script src="main.js"></script>
+    <script src="splitterbar.js"></script>
 
     <script>
-        const splitterBar = new SplitterBar(document.getElementById('container'));
+        const div1 = document.createElement('div');
+        div1.style.backgroundColor = 'yellow';
+
+        const div2 = document.createElement('div');
+        div2.style.backgroundColor = 'green';
+
+
+        const div1Content = document.createElement('div');
+        div1Content.innerHTML = 'Left side';
+        div1Content.classList.add('div-1-content')
+        div1.appendChild(div1Content);
+
+        const div2Content = document.createElement('div');
+        div2Content.innerHTML = 'Right side';
+        div2Content.classList.add('div-2-content')
+        div2.appendChild(div2Content);
+
+        const splitterBar = new SplitterBar(document.getElementById('container'), div1, div2);
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const SplitterBar = function(container) {
+const SplitterBar = function(container, leftContent, rightContent) {
     // We want two divs that we're dividing
     const leftSide = document.createElement('div');
     const rightSide = document.createElement('div');
@@ -7,6 +7,14 @@ const SplitterBar = function(container) {
     leftSide.classList.add('leftSide');
     rightSide.classList.add('rightSide');
     splitter.classList.add('splitter');
+
+    if (leftContent !== null) {
+        leftSide.appendChild(leftContent);
+    }
+
+    if (rightContent !== null) {
+        rightSide.appendChild(rightContent);
+    }
 
     
     container.appendChild(splitter);
@@ -34,6 +42,7 @@ const SplitterBar = function(container) {
     let startX = null;
     let globalXCoordinate = null;
 
+    // Will not touch
     splitter.addEventListener('mousedown', function(evt) {
         evt.preventDefault();
         mouseIsDown = true;
@@ -77,6 +86,9 @@ const SplitterBar = function(container) {
         let hoveringOnDocument = evt.target.nodeName == 'HTML' || evt.target.nodeName == 'BODY';
         let docX = evt.offsetX - container.getBoundingClientRect().x - startX;
         if (mouseIsDown) {
+
+            // When dragging what do we need to do to take care of inner splitter areas?
+
             if (hoveringOnDocument) {
                 if (docX < 0) {
                     docX = 0;

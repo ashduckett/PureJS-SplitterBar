@@ -1,0 +1,5 @@
+Show identifiers on each div in the demo.
+
+Get a splitter area within splitter area working.
+
+Conver to using JS class syntax.
