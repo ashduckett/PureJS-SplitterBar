@@ -1,30 +1,35 @@
 
-        .leftSide, .rightSide, .splitter {
-            position: absolute;
-            height: 100%;
-            overflow: hidden;
-        }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-        .splitter {
-            width: 10px;
-            z-index: 100;
-            cursor: col-resize;
-        }
+.leftSide, .rightSide, .splitter {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+}
 
-        .leftSide > div, .rightSide > div {
-            height: 100%;
-            width: 100%;
-            position: relative;
-        }
+.splitter {
+    width: 10px;
+    z-index: 100;
+    cursor: col-resize;
+}
+
+.leftSide > div, .rightSide > div {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
 
 
 
-        /* Specific to demo */
-        .div-1-content, .div-2-content {
-            margin: auto;
-            text-align: center;
-            top: 50%;
-            transform: translateY(-50%);
-            position: absolute;
-            width: 100%;
-        }
+/* Specific to demo */
+.div-1-content, .div-2-content {
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    width: 100%;
+}

@@ -20,24 +20,29 @@ const SplitterBar = function(container, leftContent, rightContent) {
     container.appendChild(splitter);
     
     splitter.style.width = '10px';
-    splitter.style.left = splitter.parentElement.offsetWidth / 2 - (splitter.offsetWidth / 2) + 'px';
-
+    // splitter.style.left = splitter.parentElement.offsetWidth / 2 - (splitter.offsetWidth / 2) + 'px';
+    splitter.style.left = '50%';
+    splitter.style.transform = 'translateX(-50%)';
     // leftSide.style.background = 'red';
     // rightSide.style.background = 'blue';
     splitter.style.background = 'black';
-
+    
 
     leftSide.style.left = 0;
     leftSide.style.top = 0;
-    leftSide.style.width = splitter.style.left;
+    // leftSide.style.width = splitter.style.left;
+    leftSide.style.width = splitter.offsetLeft - splitter.offsetWidth / 2 + 'px';
 
-    rightSide.style.left = (splitter.offsetLeft + 10) + 'px';
+    console.log('splitter offset left plus width is ', splitter.offsetLeft + splitter.offsetWidth);
+  
+
+    rightSide.style.left = (splitter.offsetLeft + splitter.offsetWidth / 2) + 'px';
     rightSide.style.top = 0;
     rightSide.style.width = container.offsetWidth - splitter.offsetLeft - 10 +  'px';
-
+    
     container.appendChild(leftSide);
     container.appendChild(rightSide);
-
+    console.log('left of right pane is ', rightSide.offsetLeft)
     let mouseIsDown = false;
     let startX = null;
     let globalXCoordinate = null;
@@ -87,6 +92,8 @@ const SplitterBar = function(container, leftContent, rightContent) {
         let docX = evt.offsetX - container.getBoundingClientRect().x - startX;
         if (mouseIsDown) {
 
+
+            console.log(splitter.offsetWidth);
             // When dragging what do we need to do to take care of inner splitter areas?
 
             if (hoveringOnDocument) {
@@ -97,11 +104,11 @@ const SplitterBar = function(container, leftContent, rightContent) {
                 if (docX + splitter.offsetWidth > container.offsetWidth) {
                     docX = containerWidth - splitter.offsetWidth;
                 }
-
+                
                 splitter.style.left = docX + 'px';
-                leftSide.style.width = splitter.offsetLeft + 'px';
+                leftSide.style.width = splitter.offsetLeft - splitter.offsetWidth / 2 + 'px';
                 rightSide.style.width = (container.offsetWidth - leftSide.offsetWidth - splitter.offsetWidth) + 'px';
-                rightSide.style.left = splitter.offsetLeft + splitter.offsetWidth + 'px';
+                rightSide.style.left = splitter.offsetLeft + (splitter.offsetWidth / 2) + 'px';
             } else {
                 if (globalXCoordinate + splitter.offsetWidth > containerWidth) {
                     globalXCoordinate = containerWidth - splitter.offsetWidth;
@@ -112,10 +119,15 @@ const SplitterBar = function(container, leftContent, rightContent) {
                 }
 
                 splitter.style.left = globalXCoordinate + 'px';
-                leftSide.style.width = splitter.offsetLeft + 'px';
+                leftSide.style.width = splitter.offsetLeft - splitter.offsetWidth / 2 + 'px';
                 rightSide.style.width = (container.offsetWidth - leftSide.offsetWidth - splitter.offsetWidth) + 'px';
-                rightSide.style.left = splitter.offsetLeft + splitter.offsetWidth + 'px';
+                
+                
+                rightSide.style.left = splitter.offsetLeft + splitter.offsetWidth / 2 + 'px';
             }
         }
     });
 };
+
+
+// dragging seems off if done over the right side. Fix.

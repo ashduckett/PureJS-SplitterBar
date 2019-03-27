@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <link href="SplitterBar.css" type="text/css" rel="stylesheet">
+    <link href="demo.css" type="text/css" rel="stylesheet">
     <title>Document</title>
 
     <style>
@@ -19,14 +21,50 @@
 
 </head>
 <body>
-    <div id="container">
+    <!-- <div id="container">
 
-    </div>
+    </div> -->
 
 
     <script src="splitterbar.js"></script>
 
     <script>
+        // Create a container for the demo
+        const containerOneHeader = document.createElement('h1');
+        containerOneHeader.innerHTML = 'Example 1 - Simple SplitPane';
+        document.body.appendChild(containerOneHeader);
+
+        const containerOne = document.createElement('div');
+        containerOne.classList.add('containerOne');
+        document.body.appendChild(containerOne);
+
+
+
+        const div1 = document.createElement('div');
+        div1.style.backgroundColor = 'yellow';
+
+        const div2 = document.createElement('div');
+        div2.style.backgroundColor = 'green';
+
+
+        const div1Content = document.createElement('div');
+        div1Content.innerHTML = 'Left side';
+        div1Content.classList.add('div-1-content')
+        div1.appendChild(div1Content);
+
+        const div2Content = document.createElement('div');
+        div2Content.innerHTML = 'Right side';
+        div2Content.classList.add('div-2-content')
+        div2.appendChild(div2Content);
+
+        const splitterBar = new SplitterBar(containerOne, div1, div2);
+
+
+
+
+
+
+        /*
         const div1 = document.createElement('div');
         div1.style.backgroundColor = 'yellow';
 
@@ -45,6 +83,37 @@
         div2.appendChild(div2Content);
 
         const splitterBar = new SplitterBar(document.getElementById('container'), div1, div2);
+        */
+
+        // const outerSplitPane1 = document.createElement('div');
+        // outerSplitPane1.style.backgroundColor = 'red';
+
+        // const outerSplitPane2 = document.createElement('div');
+        // outerSplitPane2.style.backgroundColor = 'blue';
+
+        // const outerSplitPane1Content = document.createElement('div');
+        // outerSplitPane1Content.innerHTML = 'Left side';
+        // outerSplitPane1Content.classList.add('div-1-content')
+        // outerSplitPane1.appendChild(outerSplitPane1Content);
+
+
+
+
+        // const outerSplitPane2Content = document.createElement('div');
+        // outerSplitPane2Content.innerHTML = 'Right side';
+        // outerSplitPane2Content.classList.add('div-2-content')
+        // outerSplitPane2.appendChild(outerSplitPane2Content);
+
+        // const splitPane = new SplitterBar(document.getElementById('container'), outerSplitPane1, outerSplitPane2);
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
